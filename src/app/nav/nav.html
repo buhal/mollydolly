@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    (click)="drawer.toggle()"
+    class="menu-button"
+    aria-label="Menu"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="logo">MyApp</span>
+  <span class="spacer"></span>
+  <nav class="nav-links">
+    <a mat-button routerLink="/home">Home</a>
+    <a mat-button routerLink="/cart">Shopping Cart</a>
+    <a mat-button routerLink="/about">About Us</a>
+    <a mat-button routerLink="/contacts">Contacts</a>
+  </nav>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" mode="over" [opened]="false">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home" (click)="drawer.close()">Home</a>
+      <a mat-list-item routerLink="/cart" (click)="drawer.close()"
+        >Shopping Cart</a
+      >
+      <a mat-list-item routerLink="/about" (click)="drawer.close()">About Us</a>
+      <a mat-list-item routerLink="/contacts" (click)="drawer.close()"
+        >Contacts</a
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Main content goes here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<style>
+  .sidenav-container {
+    height: 100%;
+  }
+  .menu-button {
+    display: none;
+  }
+  .logo {
+    font-weight: bold;
+    margin-left: 8px;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .nav-links {
+    display: flex;
+    gap: 8px;
+  }
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+    .menu-button {
+      display: inline-flex;
+    }
+  }
+</style>
